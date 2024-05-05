@@ -10,21 +10,15 @@ processors:
   batch:
 
 exporters:
-  debug:
-    verbosity: basic
   otlphttp:
-    endpoint: "https://152237425960.collect.observeinc.com/v2/otel"
+    endpoint: "https://<OBSERVE CUSTOMER ID>.collect.observeinc.com/v2/otel"
     headers:
-      authorization: "Bearer ds1fb1XyOBn6ifjeexmG:9YNuHp32l6Uoh9H-XOi7QY3RXNYEg_O9"
+      authorization: "Bearer <OBSERVE INGEST TOKEN>"
 
 service:
   pipelines:
-    traces:
-      receivers: [otlp]
-      processors: [batch]
-      exporters: [debug,otlphttp]
     metrics:
       receivers: [otlp]
       processors: [batch]
-      exporters: [debug,otlphttp]
+      exporters: [otlphttp]
 
