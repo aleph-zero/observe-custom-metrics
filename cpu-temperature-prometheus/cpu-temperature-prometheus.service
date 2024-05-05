@@ -1,0 +1,14 @@
+[Unit]
+Description=Fetch CPU Temperatures into Prometheus
+After=network.target
+
+[Service]
+Type=simple
+User=andrew
+WorkingDirectory=/home/andrew/src/observe-custom-metrics/cpu-temperature-prometheus
+ExecStart=/home/andrew/src/observe-custom-metrics/cpu-temperature-prometheus/python-env-wrapper.sh
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target

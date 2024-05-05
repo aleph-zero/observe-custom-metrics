@@ -1,0 +1,14 @@
+[Unit]
+Description=Fetch CPU Temperatures into OTEL
+After=network.target
+
+[Service]
+Type=simple
+User=andrew
+WorkingDirectory=/home/andrew/src/observe-custom-metrics/cpu-temperature-otel
+ExecStart=/home/andrew/src/observe-custom-metrics/cpu-temperature-otel/python-env-wrapper.sh
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
